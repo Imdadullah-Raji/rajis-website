@@ -4,10 +4,10 @@ import { Github, Linkedin, Mail, ExternalLink, BookOpen, Gamepad2 } from 'lucide
 const ConstellationNav = ({ currentPage, onNavigate }) => {
   // Summer Triangle - actual astronomical positions (scaled for display)
   const stars = {
-    vega: { x: 90, y: 30, name: 'Vega', constellation: 'Lyra', page: 'home' },
-    deneb: { x: 140, y: 25, name: 'Deneb', constellation: 'Cygnus', page: 'projects' },
-    altair: { x: 90, y: 140, name: 'Altair', constellation: 'Aquila', page: 'technical' },
-    sadr: { x: 120, y: 70, name: 'Sadr', constellation: 'Cygnus', page: 'writings' }
+    vega: { x: 90, y: 30, name: 'Home', constellation: 'Lyra', page: 'home' },
+    deneb: { x: 140, y: 25, name: 'Projects', constellation: 'Cygnus', page: 'projects' },
+    altair: { x: 90, y: 140, name: 'Technical', constellation: 'Aquila', page: 'technical' },
+    sadr: { x: 120, y: 70, name: 'Writings', constellation: 'Cygnus', page: 'writings' }
   };
 
   // Constellation lines
