@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rajis-website/static/css/main.35bab206.css",
+    "main.js": "/rajis-website/static/js/main.a37190ef.js",
+    "static/js/453.3825bdcf.chunk.js": "/rajis-website/static/js/453.3825bdcf.chunk.js",
+    "index.html": "/rajis-website/index.html",
+    "main.35bab206.css.map": "/rajis-website/static/css/main.35bab206.css.map",
+    "main.a37190ef.js.map": "/rajis-website/static/js/main.a37190ef.js.map",
+    "453.3825bdcf.chunk.js.map": "/rajis-website/static/js/453.3825bdcf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35bab206.css",
+    "static/js/main.a37190ef.js"
+  ]
+}
