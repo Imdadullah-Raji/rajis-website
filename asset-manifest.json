@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/rajis-website/static/css/main.32b910df.css",
-    "main.js": "/rajis-website/static/js/main.79f86a0d.js",
+    "main.css": "/rajis-website/static/css/main.0750d2b4.css",
+    "main.js": "/rajis-website/static/js/main.8675db0b.js",
     "static/js/453.3825bdcf.chunk.js": "/rajis-website/static/js/453.3825bdcf.chunk.js",
+    "static/media/matlab_logo.png": "/rajis-website/static/media/matlab_logo.45c84693934061927c71.png",
+    "static/media/me.jpg": "/rajis-website/static/media/me.0b07f6428077aa99a548.jpg",
+    "static/media/ros-logo.jpg": "/rajis-website/static/media/ros-logo.764a5ce5ef4606e59a89.jpg",
     "index.html": "/rajis-website/index.html",
-    "main.32b910df.css.map": "/rajis-website/static/css/main.32b910df.css.map",
-    "main.79f86a0d.js.map": "/rajis-website/static/js/main.79f86a0d.js.map",
+    "main.0750d2b4.css.map": "/rajis-website/static/css/main.0750d2b4.css.map",
+    "main.8675db0b.js.map": "/rajis-website/static/js/main.8675db0b.js.map",
     "453.3825bdcf.chunk.js.map": "/rajis-website/static/js/453.3825bdcf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32b910df.css",
-    "static/js/main.79f86a0d.js"
+    "static/css/main.0750d2b4.css",
+    "static/js/main.8675db0b.js"
   ]
 }
