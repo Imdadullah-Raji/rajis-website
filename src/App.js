@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, BookOpen, Gamepad2 } from 'lucide-react';
 
 const ConstellationNav = ({ currentPage, onNavigate }) => {
   // Summer Triangle - actual astronomical positions (scaled for display)
   const stars = {
-    vega: { x: 90, y: 30, name: 'Home', constellation: 'Lyra', page: 'home' },
-    deneb: { x: 140, y: 25, name: 'Projects', constellation: 'Cygnus', page: 'projects' },
-    altair: { x: 90, y: 140, name: 'Technical', constellation: 'Aquila', page: 'technical' },
-    sadr: { x: 120, y: 70, name: 'Writings', constellation: 'Cygnus', page: 'writings' }
+    vega: { x: 90, y: 30, name: 'Vega', constellation: 'Lyra', page: 'home' },
+    deneb: { x: 140, y: 25, name: 'Deneb', constellation: 'Cygnus', page: 'projects' },
+    altair: { x: 90, y: 140, name: 'Altair', constellation: 'Aquila', page: 'technical' },
+    sadr: { x: 120, y: 70, name: 'Sadr', constellation: 'Cygnus', page: 'writings' }
   };
 
   // Constellation lines
@@ -19,9 +20,9 @@ const ConstellationNav = ({ currentPage, onNavigate }) => {
     
     // Cygnus (Northern Cross) - Deneb and Sadr
     { from: stars.deneb, to: stars.sadr, color: '#888', opacity: 0.3, width: 1 },
-    { from: stars.sadr, to: { x: 120, y: 110 }, color: '#666', opacity: 0.2, width: 0.8 }, // Tail
-    { from: stars.sadr, to: { x: 95, y: 65 }, color: '#666', opacity: 0.2, width: 0.8 }, // Left wing
-    { from: stars.sadr, to: { x: 145, y: 65 }, color: '#666', opacity: 0.2, width: 0.8 }, // Right wing
+    { from: stars.sadr, to: { x: 120, y: 110 }, color: '#666', opacity: 0.2, width: 0.8 },
+    { from: stars.sadr, to: { x: 95, y: 65 }, color: '#666', opacity: 0.2, width: 0.8 },
+    { from: stars.sadr, to: { x: 145, y: 65 }, color: '#666', opacity: 0.2, width: 0.8 },
     
     // Lyra - Vega
     { from: stars.vega, to: { x: 75, y: 45 }, color: '#666', opacity: 0.2, width: 0.8 },
@@ -121,67 +122,152 @@ const ConstellationNav = ({ currentPage, onNavigate }) => {
 };
 
 const HomePage = () => {
-  const [orbitAngle, setOrbitAngle] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOrbitAngle(prev => (prev + 0.5) % 360);
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Subtle orbital background */}
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute top-1/2 left-1/2 border border-blue-400 rounded-full"
-            style={{
-              width: `${(i + 1) * 200}px`,
-              height: `${(i + 1) * 200}px`,
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        ))}
-        <div
-          className="absolute top-1/2 left-1/2 w-3 h-3 bg-blue-400 rounded-full"
-          style={{
-            transform: `translate(-50%, -50%) rotate(${orbitAngle}deg) translateX(300px)`,
-          }}
-        />
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Summer Triangle Background - centered */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+        <svg width="600" height="600" viewBox="0 0 200 200" className="w-full h-full max-w-3xl">
+          {/* Summer Triangle - main structure */}
+          <line x1="90" y1="30" x2="140" y2="25" stroke="#4a9eff" strokeWidth="2" opacity="0.6"/>
+          <line x1="140" y1="25" x2="90" y2="140" stroke="#4a9eff" strokeWidth="2" opacity="0.6"/>
+          <line x1="90" y1="140" x2="90" y2="30" stroke="#4a9eff" strokeWidth="2" opacity="0.6"/>
+          
+          {/* Cygnus constellation lines */}
+          <line x1="140" y1="25" x2="120" y2="70" stroke="#888" strokeWidth="1.5" opacity="0.4"/>
+          <line x1="120" y1="70" x2="120" y2="110" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          <line x1="120" y1="70" x2="95" y2="65" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          <line x1="120" y1="70" x2="145" y2="65" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          
+          {/* Lyra constellation lines */}
+          <line x1="90" y1="30" x2="75" y2="45" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          <line x1="90" y1="30" x2="105" y2="45" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          
+          {/* Aquila constellation lines */}
+          <line x1="90" y1="140" x2="75" y2="125" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          <line x1="90" y1="140" x2="105" y2="125" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          <line x1="90" y1="140" x2="90" y2="160" stroke="#666" strokeWidth="1.2" opacity="0.3"/>
+          
+          {/* Stars */}
+          <circle cx="90" cy="30" r="3" fill="#d4d4d8" filter="drop-shadow(0 0 4px #fff)"/>
+          <circle cx="140" cy="25" r="3" fill="#d4d4d8" filter="drop-shadow(0 0 4px #fff)"/>
+          <circle cx="90" cy="140" r="3" fill="#d4d4d8" filter="drop-shadow(0 0 4px #fff)"/>
+          <circle cx="120" cy="70" r="2.5" fill="#d4d4d8" filter="drop-shadow(0 0 3px #fff)"/>
+          
+          {/* Background stars */}
+          <circle cx="75" cy="45" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="105" cy="45" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="95" cy="65" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="145" cy="65" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="120" cy="110" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="75" cy="125" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="105" cy="125" r="1.5" fill="#888" opacity="0.6"/>
+          <circle cx="90" cy="160" r="1.5" fill="#888" opacity="0.6"/>
+        </svg>
       </div>
 
-      <div className="max-w-3xl px-8 relative z-10">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          Imdadullah Raji
-        </h1>
-        <p className="text-xl text-gray-400 mb-6 font-mono">
-          mechanical engineering student / control systems / dynamics
-        </p>
-        
-        <div className="text-gray-300 space-y-4 leading-relaxed mb-8">
-          <p>
-            I explore the world through the lens of dynamical systems—where chaos meets order, 
-            and emergent behaviors arise from simple rules. My work sits at the intersection of 
-            data-driven modeling, learning-based control, and the philosophical questions that 
-            drive our understanding of complex systems.
-          </p>
-          <p>
-            From fluid flows to robotic swarms, I combine first-principles modeling with modern 
-            machine learning to understand and control systems that refuse to be tamed by linear 
-            thinking. I'm particularly drawn to the beautiful connections that emerge across 
-            disciplines: eigenvalues in buckling and Fourier, cognition and computation, 
-            order and entropy.
-          </p>
-          <p className="text-sm text-gray-400 italic border-l-2 border-gray-600 pl-4">
-            "The essence of chaos is not randomness—it's sensitivity to initial conditions, 
-            deterministic yet unpredictable, like the three bodies dancing in gravitational embrace."
-          </p>
-        </div>
+      {/* Main content */}
+      <div className="flex-1 flex items-center justify-center px-8 py-20 relative z-10">
+        <div className="max-w-4xl w-full">
+          {/* Header with photo and name */}
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-10">
+            {/* Profile Photo */}
+            <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-blue-400/30 flex-shrink-0">
+              <img 
+                src="me.jpg" 
+                alt="Imdadullah Raji"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Name and title */}
+            <div className="text-center md:text-left">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3 text-white">
+                Imdadullah Raji
+              </h1>
+              <div className="space-y-1">
+                <p className="text-xl text-gray-300">
+                  Undergraduate Student
+                </p>
+                <p className="text-lg text-gray-400">
+                  Mechanical Engineering
+                </p>
+                <p className="text-lg text-blue-400 font-semibold">
+                  BUET
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* About Me */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-semibold text-blue-400 mb-4">About Me</h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              I am a dynamical systems and control enthusiast. I enjoy applying data-driven methods 
+              in nonlinear, multiscale dynamical systems.
+            </p>
+          </div>
 
-        <div className="flex gap-6">
+          {/* Skills Section */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-semibold text-blue-400 mb-6">Skills</h2>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {/* Skill placeholders - replace with actual logos */}
+              <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
+                <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
+                  <span className="text-xs text-gray-500">PyTorch Logo</span>
+                </div>
+                <span className="text-sm font-mono text-gray-300">PyTorch</span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
+                <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
+                  <span className="text-xs text-gray-500">COMSOL Logo</span>
+                </div>
+                <span className="text-sm font-mono text-gray-300">COMSOL</span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
+                <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
+                  <span className="text-xs text-gray-500">ANSYS Logo</span>
+                </div>
+                <span className="text-sm font-mono text-gray-300">ANSYS</span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
+                <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
+                  <span className="text-xs text-gray-500">ROS Logo</span>
+                </div>
+                <span className="text-sm font-mono text-gray-300">ROS</span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
+                <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
+                  <span className="text-xs text-gray-500">MATLAB Logo</span>
+                </div>
+                <span className="text-sm font-mono text-gray-300">MATLAB</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Download CV Button */}
+          <div className="flex justify-center mb-10">
+            <a
+              href="https://github.com/Imdadullah-Raji/resume/raw/main/RAJI_CV.pdf"
+              download
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-mono text-lg rounded transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer with social links */}
+      <div className="bg-gray-900/80 backdrop-blur-sm py-6 px-8 relative z-10">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8">
           <a
             href="https://github.com/Imdadullah-Raji"
             target="_blank"
@@ -211,7 +297,7 @@ const HomePage = () => {
       </div>
     </div>
   );
-};
+}
 
 const ProjectsPage = () => {
   const projects = [
