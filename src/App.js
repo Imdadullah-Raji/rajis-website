@@ -1,6 +1,12 @@
 
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, BookOpen, Gamepad2 } from 'lucide-react';
+import me from './photos/me.jpg';
+import ros from './photos/ros-logo.jpg';
+import comsol from './photos/comsol_logo.jpg';
+import ansys from './photos/ansys_logo.png';
+import pytorch from './photos/pytorch_logo.png';
+import mat from './photos/matlab_logo.png';
 
 const ConstellationNav = ({ currentPage, onNavigate }) => {
   // Summer Triangle - actual astronomical positions (scaled for display)
@@ -173,7 +179,7 @@ const HomePage = () => {
             {/* Profile Photo */}
             <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-blue-400/30 flex-shrink-0">
               <img 
-                src="/src/me.jpg" 
+                src={me} 
                 alt="Imdadullah Raji"
                 className="w-full h-full object-cover"
               />
@@ -214,40 +220,42 @@ const HomePage = () => {
               {/* Skill placeholders - replace with actual logos */}
               <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
                 <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-500">PyTorch Logo</span>
+                  <span className="text-xs text-gray-500"><img src={pytorch} alt="PyTorch Logo" className="w-full h-full object-contain" /></span>
                 </div>
                 <span className="text-sm font-mono text-gray-300">PyTorch</span>
               </div>
               
               <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
                 <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-500">COMSOL Logo</span>
+                  <span className="text-xs text-gray-500"><img src={comsol} alt="COMSOL Logo" className="w-full h-full object-contain" /></span>
                 </div>
                 <span className="text-sm font-mono text-gray-300">COMSOL</span>
               </div>
               
               <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
                 <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-500">ANSYS Logo</span>
+                  <span className="text-xs text-gray-500"><img src={ansys} alt="ANSYS Logo" className="w-full h-full object-contain" /></span>
                 </div>
                 <span className="text-sm font-mono text-gray-300">ANSYS</span>
               </div>
               
               <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
                 <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-500">ROS Logo</span>
+                  <span className="text-xs text-gray-500"><img src={ros} alt="ROS Logo" className="w-full h-full object-contain" /></span>
                 </div>
                 <span className="text-sm font-mono text-gray-300">ROS</span>
               </div>
               
               <div className="flex flex-col items-center gap-3 p-4 bg-gray-900/50 rounded border border-gray-700 hover:border-blue-500/50 transition-colors">
                 <div className="w-16 h-16 bg-gray-800 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-500">MATLAB Logo</span>
+                  <span className="text-xs text-gray-500"><img src={mat} alt="MATLAB Logo" className="w-full h-full object-contain" /></span>
                 </div>
                 <span className="text-sm font-mono text-gray-300">MATLAB</span>
               </div>
             </div>
           </div>
+              
+
 
           {/* Download CV Button */}
           <div className="flex justify-center mb-10">
