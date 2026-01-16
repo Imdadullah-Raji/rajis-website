@@ -173,7 +173,7 @@ const HomePage = () => {
             {/* Profile Photo */}
             <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-blue-400/30 flex-shrink-0">
               <img 
-                src="me.jpg" 
+                src="/src/me.jpg" 
                 alt="Imdadullah Raji"
                 className="w-full h-full object-cover"
               />
@@ -252,7 +252,7 @@ const HomePage = () => {
           {/* Download CV Button */}
           <div className="flex justify-center mb-10">
             <a
-              href="https://github.com/Imdadullah-Raji/resume/raw/main/RAJI_CV.pdf"
+              href="https://drive.google.com/file/d/17O02TDxcS8GkuX275Ot1V7ntdYOSzhI1/view?usp=sharing"
               download
               className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-mono text-lg rounded transition-colors"
             >
