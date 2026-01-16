@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/rajis-website/static/css/main.32b910df.css",
-    "main.js": "/rajis-website/static/js/main.06a31aa2.js",
+    "main.js": "/rajis-website/static/js/main.79f86a0d.js",
     "static/js/453.3825bdcf.chunk.js": "/rajis-website/static/js/453.3825bdcf.chunk.js",
     "index.html": "/rajis-website/index.html",
     "main.32b910df.css.map": "/rajis-website/static/css/main.32b910df.css.map",
-    "main.06a31aa2.js.map": "/rajis-website/static/js/main.06a31aa2.js.map",
+    "main.79f86a0d.js.map": "/rajis-website/static/js/main.79f86a0d.js.map",
     "453.3825bdcf.chunk.js.map": "/rajis-website/static/js/453.3825bdcf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.32b910df.css",
-    "static/js/main.06a31aa2.js"
+    "static/js/main.79f86a0d.js"
   ]
 }
